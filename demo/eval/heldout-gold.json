@@ -1,0 +1,149 @@
+{
+  "synthetic": true,
+  "held_out": true,
+  "scenario": "demo/heldout/manifest.json",
+  "labelled_by": "AI team on Ci's behalf, from the cases planted when the held-out set was written (DL-010); no system has been run on this set. Not human-labelled: Claire has not read it.",
+  "frozen": "2026-10-17",
+  "notes": [
+    "Keywords are matched as whole words, case-insensitive, against the decision statement; the source is the manifest file of the first evidence quote (scripts/eval.py).",
+    "The Slack confirmation of May 4 comes before the move to May 18. If it is not merged into H1 it becomes an extra decision, and the supersession may then point at it instead of H1.",
+    "H7 is a decision; the trap is that the source names no alternative, so a model must not invent rejected options."
+  ],
+  "decisions": [
+    {
+      "id": "H1",
+      "source": "01-planning-0302.txt",
+      "keywords": [
+        "may 4"
+      ],
+      "summary": "Ticket sales open on May 4"
+    },
+    {
+      "id": "H2",
+      "source": "01-planning-0302.txt",
+      "keywords": [
+        "timetable"
+      ],
+      "summary": "The published timetable is kept as a daily CDN copy"
+    },
+    {
+      "id": "H3",
+      "source": "01-planning-0302.txt",
+      "keywords": [
+        "southern"
+      ],
+      "summary": "Sales open for the two southern routes only"
+    },
+    {
+      "id": "H4",
+      "source": "02-slack-ops.json",
+      "keywords": [
+        "live"
+      ],
+      "summary": "Timetables are served live; no copies"
+    },
+    {
+      "id": "H5",
+      "source": "03-sprint-review-0316.txt",
+      "keywords": [
+        "may 18"
+      ],
+      "summary": "Ticket sales move to May 18 (drops May 4)"
+    },
+    {
+      "id": "H6",
+      "source": "03-sprint-review-0316.txt",
+      "keywords": [
+        "services/booking"
+      ],
+      "summary": "Nothing in services/booking/ calls the payment provider SDK; charges go through gateway/billing/"
+    },
+    {
+      "id": "H7",
+      "source": "03-sprint-review-0316.txt",
+      "keywords": [
+        "queue"
+      ],
+      "summary": "Booking confirmations stay on the existing message queue"
+    }
+  ],
+  "duplicates": [
+    {
+      "source": "02-slack-ops.json",
+      "of": "H1",
+      "summary": "Oskar pins the May 4 date in Slack; must merge into H1"
+    }
+  ],
+  "non_decisions": [
+    {
+      "source": "01-planning-0302.txt",
+      "trap": "hedged idea about prefetching next week's sailings"
+    },
+    {
+      "source": "02-slack-ops.json",
+      "trap": "seat maps one day"
+    },
+    {
+      "source": "03-sprint-review-0316.txt",
+      "trap": "loyalty programme, explicitly not now"
+    }
+  ],
+  "conflicts": [
+    [
+      "H2",
+      "H4"
+    ]
+  ],
+  "supersessions": [
+    {
+      "old": "H1",
+      "new": "H5"
+    }
+  ],
+  "deviations": [
+    {
+      "pr": 12,
+      "decision": "H6"
+    }
+  ],
+  "compliant_prs": [
+    13,
+    14
+  ],
+  "hard_negative_prs": [
+    {
+      "pr": 14,
+      "why": "the provider import appears only in a comment; the other change is a dependency bump"
+    }
+  ],
+  "premise_changes": [
+    {
+      "decision": "H3",
+      "premise_keywords": [
+        "north pier"
+      ],
+      "evidence_keywords": [
+        "april 20"
+      ],
+      "source": "05-slack-news.json",
+      "summary": "The north pier reopens on April 20, not in June"
+    }
+  ],
+  "premise_negatives": [
+    {
+      "source": "05-slack-news.json",
+      "quote": "Unrelated, the Gullhaven operator next door loses its pier for a month.",
+      "trap": "another operator"
+    },
+    {
+      "source": "05-slack-news.json",
+      "quote": "Someone mentioned more pier work next year. Nothing is booked.",
+      "trap": "not scheduled"
+    },
+    {
+      "source": "05-slack-news.json",
+      "quote": "No idea if or when the east pier comes back.",
+      "trap": "value unknown"
+    }
+  ]
+}

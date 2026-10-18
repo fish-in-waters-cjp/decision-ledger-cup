@@ -1,0 +1,134 @@
+{
+  "synthetic": true,
+  "scenario": "src/decision_ledger/demo/fixtures/manifest.json",
+  "labelled_by": "AI team on Ci's behalf, from the cases planted in the scenario design (DL-009 plan). Written after the first, discarded recording (RECORDING.md) had been inspected; keywords come from the scenario wording, not from system output. Development set, not held-out.",
+  "decisions": [
+    {
+      "id": "D1",
+      "source": "01-kickoff-0908.txt",
+      "keywords": [
+        "guest"
+      ],
+      "summary": "Guest checkout is allowed in the beta"
+    },
+    {
+      "id": "D2",
+      "source": "01-kickoff-0908.txt",
+      "keywords": [
+        "november 3"
+      ],
+      "summary": "The beta launches on November 3"
+    },
+    {
+      "id": "D3",
+      "source": "02-architecture-0922.txt",
+      "keywords": [
+        "src/payments"
+      ],
+      "summary": "Nothing under src/payments/ imports the database client; use the ledger API"
+    },
+    {
+      "id": "D4",
+      "source": "02-architecture-0922.txt",
+      "keywords": [
+        "postgres"
+      ],
+      "summary": "The order store stays on Postgres"
+    },
+    {
+      "id": "D5",
+      "source": "02-architecture-0922.txt",
+      "keywords": [
+        "november 17"
+      ],
+      "summary": "The beta launch moves to November 17 (replaces November 3)"
+    },
+    {
+      "id": "D6",
+      "source": "03-slack-beta-launch.json",
+      "keywords": [
+        "account"
+      ],
+      "summary": "The beta requires an account for every order"
+    }
+  ],
+  "duplicates": [
+    {
+      "source": "03-slack-beta-launch.json",
+      "of": "D5",
+      "summary": "Mika confirms November 17 in Slack; must merge into D5, not become a new decision"
+    }
+  ],
+  "non_decisions": [
+    {
+      "source": "01-kickoff-0908.txt",
+      "quote": "I think we should maybe look at Apple Pay at some point",
+      "trap": "hedged opinion"
+    },
+    {
+      "source": "01-kickoff-0908.txt",
+      "quote": "Maybe we could cache the whole catalog at the edge",
+      "trap": "thinking out loud"
+    },
+    {
+      "source": "03-slack-beta-launch.json",
+      "quote": "Maybe we could add a dark mode later?",
+      "trap": "suggestion"
+    }
+  ],
+  "conflicts": [
+    [
+      "D1",
+      "D6"
+    ]
+  ],
+  "supersessions": [
+    {
+      "old": "D2",
+      "new": "D5"
+    }
+  ],
+  "deviations": [
+    {
+      "pr": 87,
+      "decision": "D3"
+    }
+  ],
+  "compliant_prs": [
+    88
+  ],
+  "premise_changes": [
+    {
+      "decision": "D5",
+      "premise_keywords": [
+        "two testers"
+      ],
+      "source": "05-weekly-1013.txt",
+      "summary": "QA went from two testers to four",
+      "evidence_keywords": [
+        "four testers"
+      ]
+    }
+  ],
+  "premise_negatives": [
+    {
+      "source": "05-weekly-1013.txt",
+      "quote": "The design team has a new hire starting next month",
+      "trap": "not joined yet, other team"
+    },
+    {
+      "source": "05-weekly-1013.txt",
+      "quote": "The mobile team also got a new tester",
+      "trap": "other team"
+    },
+    {
+      "source": "05-weekly-1013.txt",
+      "quote": "We might get one more tester later this year. No idea yet.",
+      "trap": "value unknown"
+    }
+  ],
+  "notes": [
+    "D4 is a decision: the trap is that the source names no alternative, so a model must not invent rejected options.",
+    "Keywords are matched lower-case against the decision statement; the source is the manifest file of the first evidence quote."
+  ]
+}

@@ -1,0 +1,10 @@
+[00:00:05] Oskar: Ferryline planning, round one. Kestrel team; this is the synthetic held-out set.
+[00:00:31] Bao: Can I start with dates? Marketing needs one by Friday.
+[00:00:58] Oskar: Then we open ticket sales on May 4. Write that down.
+[00:01:40] Wren: Next thing. On pier wifi the timetable page takes eight seconds.
+[00:02:05] Dagny: We could look into prefetching next week's sailings, though I doubt it pays off.
+[00:02:33] Wren: My proposal, and I want a yes or no: the published timetable is stored in the CDN and refreshed once a day.
+[00:02:41] Oskar: Yes. A daily CDN copy of the timetable.
+[00:03:50] Oskar: Routes. Repairs keep the north pier shut until June, which leaves us the two southern routes.
+[00:04:12] Bao: So sales open for the two southern routes only?
+[00:04:15] Oskar: Correct, southern routes only at launch.

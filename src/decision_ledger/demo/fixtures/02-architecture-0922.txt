@@ -1,0 +1,8 @@
+[00:00:08] Mika: Two things today, the payments boundary and the schedule.
+[00:00:40] Noah: Payments first. Last sprint a column rename broke refunds and the billing export at the same time, because both read the orders table directly.
+[00:01:02] Noah: So from now on, nothing under src/payments/ imports the database client. Payments code goes through the ledger API client in src/ledger/ instead.
+[00:01:20] Jonas: That works. The ledger API already exposes refunds and balances.
+[00:02:05] Noah: And the order store stays on Postgres.
+[00:03:10] Remy: On the schedule. QA has two testers until December, and the regression suite takes them about nine working days.
+[00:03:42] Mika: Then November 3 is not realistic. We move the beta launch from November 3 to November 17. November 17 replaces the November 3 date.
+[00:04:05] Priya: OK. I'll tell the partners it's the 17th.

@@ -1,0 +1,284 @@
+{
+  "ask:9e0d50ccce785397": {
+    "answer": "The beta launch was moved from November 3 to November 17 because QA only has two testers until December, and running the regression suite takes them about nine working days, making the November 3 date unrealistic.",
+    "cited_decision_ids": [
+      "4"
+    ]
+  },
+  "ask:d7d497a356056d9d": {
+    "answer": "The beta launch date was initially set for November 3 to ensure shoppers were on the beta before the Northfield outdoor partner fair on November 10. However, it was later moved to November 17 because QA had only two testers until December, and running the regression suite takes them about nine working days, making the November 3 date unrealistic.",
+    "cited_decision_ids": [
+      "2",
+      "4"
+    ]
+  },
+  "ask:de60f69f555d6831": {
+    "answer": "Payments code cannot use the database client directly because during a previous sprint, a column rename broke refunds and the billing export at the same time, as both were reading the orders table directly.",
+    "cited_decision_ids": [
+      "3"
+    ]
+  },
+  "ask:e01a4a44ac1597f2": {
+    "answer": "No, guest checkout is not allowed in the beta. The beta requires an account for every order, with no guest orders allowed.",
+    "cited_decision_ids": [
+      "5"
+    ]
+  },
+  "assumption:87db7befa8b2aa97ea8e78f6fdfc0b8e49ee408a762d5d7b0570eda6a19b525b": {
+    "findings": [
+      {
+        "assumption_text": "QA has two testers until December, and the regression suite takes them about nine working days.",
+        "decision_id": "decision #4",
+        "evidence": [
+          {
+            "quote": "Good news on QA. Two contract testers started on Monday, so QA is four testers now.",
+            "segment_index": 1
+          }
+        ],
+        "explanation": "Remy states that two contract testers started on Monday, making the QA team four testers now, which contradicts the assumption that QA has only two testers until December."
+      }
+    ]
+  },
+  "assumption:92440308f55f4d49bcefbf9a77f4225f3b5262bdd474e3ba1b2a451cad88309a": {
+    "findings": [
+      {
+        "assumption_text": "The Northfield outdoor partner fair is on November 10.",
+        "decision_id": "decision #2",
+        "evidence": [
+          {
+            "quote": "Then November 3 is not realistic. We move the beta launch from November 3 to November 17. November 17 replaces the November 3 date.",
+            "segment_index": 6
+          },
+          {
+            "quote": "OK. I'll tell the partners it's the 17th.",
+            "segment_index": 7
+          }
+        ],
+        "explanation": "The beta launch is being postponed from November 3 to November 17, which is after the assumed date of the partner fair (November 10). Priya also mentions she will inform the partners of the new November 17 date, making the assumption about the November 10 fair date doubtful."
+      }
+    ]
+  },
+  "assumption:da426d87fc5e32ae45b7b74c171d9737be344953aa9c07f7c51f10608341d742": {
+    "findings": [
+      {
+        "assumption_text": "Forcing users to sign up causes them to abandon the cart.",
+        "decision_id": "decision #1",
+        "evidence": [
+          {
+            "quote": "Reminder for everyone touching checkout, as agreed: the beta requires an account for every order. No guest orders in beta.",
+            "segment_index": 1
+          },
+          {
+            "quote": "Yes, account required for the beta. Support needs every order tied to a login.",
+            "segment_index": 2
+          }
+        ],
+        "explanation": "The team has decided that the beta will require an account for every order, which directly contradicts the decision to allow guest checkout and makes the assumption that forcing sign-ups causes cart abandonment doubtful or no longer a priority."
+      }
+    ]
+  },
+  "deviation:ci-yang/decision-ledger-demo-repo#87@f6988fc76176091e3813f9ac8569d1ef86a108cd": {
+    "violations": [
+      {
+        "decision_id": "3",
+        "explanation": "Importing the database client under src/payments/ is forbidden. Payments code must use the ledger API client instead.",
+        "file": "src/payments/refunds.ts",
+        "line": 2,
+        "snippet": "import { dbClient } from \"../db/client\";"
+      }
+    ]
+  },
+  "deviation:ci-yang/decision-ledger-demo-repo#88@1d552e6b6fd7c38c7d60d8d0c1d8d4df65a39182": {
+    "violations": []
+  },
+  "extract:87db7befa8b2aa97ea8e78f6fdfc0b8e49ee408a762d5d7b0570eda6a19b525b": {
+    "decisions": []
+  },
+  "extract:92440308f55f4d49bcefbf9a77f4225f3b5262bdd474e3ba1b2a451cad88309a": {
+    "decisions": [
+      {
+        "assumptions": [
+          {
+            "evidence": [
+              {
+                "quote": "The ledger API already exposes refunds and balances.",
+                "segment_index": 3
+              }
+            ],
+            "text": "The ledger API already exposes refunds and balances."
+          }
+        ],
+        "checkable_rule": {
+          "description": "Nothing under src/payments/ imports the database client. Payments code goes through the ledger API client in src/ledger/ instead.",
+          "path_patterns": [
+            "src/payments/**/*"
+          ]
+        },
+        "decided_by": "Noah",
+        "evidence": [
+          {
+            "quote": "So from now on, nothing under src/payments/ imports the database client. Payments code goes through the ledger API client in src/ledger/ instead.",
+            "segment_index": 2
+          }
+        ],
+        "rationale": "Last sprint a column rename broke refunds and the billing export at the same time, because both read the orders table directly.",
+        "statement": "Nothing under src/payments/ imports the database client, and payments code must go through the ledger API client in src/ledger/ instead.",
+        "topic": "Payments boundary"
+      },
+      {
+        "assumptions": [
+          {
+            "evidence": [
+              {
+                "quote": "QA has two testers until December, and the regression suite takes them about nine working days.",
+                "segment_index": 5
+              }
+            ],
+            "text": "QA has two testers until December, and the regression suite takes them about nine working days."
+          }
+        ],
+        "checkable_rule": null,
+        "decided_by": "Mika",
+        "evidence": [
+          {
+            "quote": "We move the beta launch from November 3 to November 17. November 17 replaces the November 3 date.",
+            "segment_index": 6
+          }
+        ],
+        "rationale": "QA has two testers until December, and the regression suite takes them about nine working days, making the November 3 date unrealistic.",
+        "statement": "The beta launch is moved from November 3 to November 17.",
+        "topic": "Beta launch date"
+      }
+    ]
+  },
+  "extract:da426d87fc5e32ae45b7b74c171d9737be344953aa9c07f7c51f10608341d742": {
+    "decisions": [
+      {
+        "assumptions": [],
+        "checkable_rule": null,
+        "decided_by": "Mika",
+        "evidence": [
+          {
+            "quote": "the beta launch is November 17.",
+            "segment_index": 0
+          }
+        ],
+        "rationale": "To align the team and update the roadmap.",
+        "statement": "The beta launch is scheduled for November 17.",
+        "topic": "Beta launch date"
+      },
+      {
+        "assumptions": [
+          {
+            "evidence": [
+              {
+                "quote": "Support needs every order tied to a login.",
+                "segment_index": 2
+              }
+            ],
+            "text": "Support needs every order tied to a login."
+          }
+        ],
+        "checkable_rule": {
+          "description": "Ensure that guest checkout is disabled and an account is required for every order.",
+          "path_patterns": [
+            "**/checkout/**"
+          ]
+        },
+        "decided_by": "Jonas",
+        "evidence": [
+          {
+            "quote": "the beta requires an account for every order. No guest orders in beta.",
+            "segment_index": 1
+          },
+          {
+            "quote": "Yes, account required for the beta.",
+            "segment_index": 2
+          }
+        ],
+        "rationale": "Support needs every order tied to a login.",
+        "statement": "The beta requires an account for every order, with no guest orders allowed.",
+        "topic": "Checkout"
+      }
+    ]
+  },
+  "extract:e9d406a91427eb2079815c79c820527ac55ea4b190d686639f1053428951894b": {
+    "decisions": [
+      {
+        "assumptions": [
+          {
+            "evidence": [
+              {
+                "quote": "Partners keep telling us people abandon the cart when we force them to sign up.",
+                "segment_index": 1
+              }
+            ],
+            "text": "Forcing users to sign up causes them to abandon the cart."
+          }
+        ],
+        "checkable_rule": null,
+        "decided_by": "Mika",
+        "evidence": [
+          {
+            "quote": "For checkout, let's allow guest checkout in the beta. No account needed to place an order.",
+            "segment_index": 3
+          },
+          {
+            "quote": "Guest checkout is in for the beta.",
+            "segment_index": 4
+          }
+        ],
+        "rationale": "Partners keep telling us people abandon the cart when we force them to sign up.",
+        "statement": "The beta will allow guest checkout without requiring an account.",
+        "topic": "Checkout"
+      },
+      {
+        "assumptions": [
+          {
+            "evidence": [
+              {
+                "quote": "The Northfield outdoor partner fair is on November 10, and we want shoppers on the beta before that.",
+                "segment_index": 5
+              }
+            ],
+            "text": "The Northfield outdoor partner fair is on November 10."
+          }
+        ],
+        "checkable_rule": null,
+        "decided_by": "Mika",
+        "evidence": [
+          {
+            "quote": "So the beta launches on November 3.",
+            "segment_index": 6
+          }
+        ],
+        "rationale": "The Northfield outdoor partner fair is on November 10, and we want shoppers on the beta before that.",
+        "statement": "The beta will launch on November 3.",
+        "topic": "Beta launch date"
+      }
+    ]
+  },
+  "reconcile:92440308f55f4d49bcefbf9a77f4225f3b5262bdd474e3ba1b2a451cad88309a:1": {
+    "existing_id": "#2",
+    "explanation": "The new decision explicitly replaces the November 3 launch date with November 17.",
+    "relation": "supersede"
+  },
+  "reconcile:da426d87fc5e32ae45b7b74c171d9737be344953aa9c07f7c51f10608341d742:0": {
+    "existing_id": "#4",
+    "explanation": "The new decision confirms the beta launch date of November 17, which was already established in decision #4.",
+    "relation": "merge"
+  },
+  "reconcile:da426d87fc5e32ae45b7b74c171d9737be344953aa9c07f7c51f10608341d742:1": {
+    "existing_id": "#1",
+    "explanation": "The new decision directly contradicts the existing decision #1 by requiring an account for all beta orders instead of allowing guest checkout, without explicitly stating that it replaces the previous decision.",
+    "relation": "conflict"
+  },
+  "topic:92440308f55f4d49bcefbf9a77f4225f3b5262bdd474e3ba1b2a451cad88309a": {
+    "assignments": [
+      {
+        "index": 0,
+        "topic_id": null
+      }
+    ]
+  }
+}

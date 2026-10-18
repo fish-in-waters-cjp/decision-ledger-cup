@@ -1,0 +1,6 @@
+[
+  {"ts": "1772704800.000100", "user": "U12FENNA", "user_profile": {"real_name": "Fenna"}, "text": "Planning notes say timetables are served live, right? Sailings get cancelled by weather within minutes, so nobody should cache a timetable."},
+  {"ts": "1772705100.000200", "user": "U13IVO", "user_profile": {"real_name": "Ivo"}, "text": "Yes. Live timetables, no copies. Dispatch has been burned by stale sailings before."},
+  {"ts": "1772791200.000300", "user": "U11OSKAR", "user_profile": {"real_name": "Oskar"}, "text": "Pinning this: ticket sales open on May 4."},
+  {"ts": "1772877600.000400", "user": "U14DAGNY", "user_profile": {"real_name": "Dagny"}, "text": "Random thought, seat maps would be neat one day."}
+]

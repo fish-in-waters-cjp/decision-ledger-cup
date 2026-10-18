@@ -1,0 +1,9 @@
+[00:00:12] Mika: Thanks for joining. This is the TrailCart beta kickoff. Synthetic team, synthetic notes, but let's treat it like the real thing.
+[00:01:05] Priya: First topic is checkout. Partners keep telling us people abandon the cart when we force them to sign up.
+[00:01:40] Noah: I think we should maybe look at Apple Pay at some point, but that's a later conversation.
+[00:02:18] Priya: Agreed, later. For checkout, let's allow guest checkout in the beta. No account needed to place an order.
+[00:02:31] Mika: Fine by me. Guest checkout is in for the beta.
+[00:04:02] Mika: Next, the date. The Northfield outdoor partner fair is on November 10, and we want shoppers on the beta before that.
+[00:04:20] Mika: So the beta launches on November 3.
+[00:05:47] Jonas: Maybe we could cache the whole catalog at the edge. Not proposing it yet, just thinking out loud.
+[00:06:10] Remy: I'll set up the regression suite this week so we know where we stand.

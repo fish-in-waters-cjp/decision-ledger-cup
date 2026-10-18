@@ -1,0 +1,43 @@
+[project]
+name = "decision-ledger"
+version = "0.1.0"
+description = "Decision Ledger: organizational decision memory with deviation detection and assumption watch"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.143.0",
+    "pydantic>=2.14.1",
+    "python-multipart>=0.0.32",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[project.scripts]
+decision-ledger = "decision_ledger:main"
+
+[project.optional-dependencies]
+gemini = [
+    "google-genai>=2.30.0",
+]
+cloud = [
+    "google-cloud-firestore>=2.34.1",
+    # DL-032: Firebase ID token verification (google.oauth2.id_token) and its HTTP transport.
+    "google-auth>=2.40.0",
+    "requests>=2.32.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.11.28,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=9.1.1",
+    "pytest-socket>=0.8.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# No network in tests (Constitution: tests never call a real LLM or network service).
+# Unix sockets stay allowed because asyncio's event loop uses a local socketpair.
+addopts = "--disable-socket --allow-unix-socket"

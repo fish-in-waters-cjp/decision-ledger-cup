@@ -1,0 +1,6 @@
+[00:00:10] Mika: Weekly sync. Quick round of updates.
+[00:00:55] Remy: Good news on QA. Two contract testers started on Monday, so QA is four testers now.
+[00:01:30] Priya: The design team has a new hire starting next month, nothing changes for us yet.
+[00:01:58] Jonas: The mobile team also got a new tester, but they stay on the mobile app.
+[00:02:40] Remy: We might get one more tester later this year. No idea yet.
+[00:03:15] Mika: OK. Let's keep going and look at the dashboard next week.

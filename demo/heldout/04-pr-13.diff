@@ -1,0 +1,12 @@
+diff --git a/services/booking/checkout.py b/services/booking/checkout.py
+index 672b150..003033b 100644
+--- a/services/booking/checkout.py
++++ b/services/booking/checkout.py
+@@ -3,3 +3,7 @@ from gateway.billing.client import charge
+ 
+ def book_seat(rider_id: str, sailing_id: str, fare_cents: int) -> str:
+     return charge(rider_id, fare_cents, idempotency_key=f"{rider_id}:{sailing_id}")
++
++
++def add_luggage_fee(rider_id: str, sailing_id: str, cents: int) -> str:
++    return charge(rider_id, cents, idempotency_key=f"{rider_id}:{sailing_id}:luggage")

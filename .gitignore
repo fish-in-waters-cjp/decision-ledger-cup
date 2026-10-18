@@ -1,0 +1,30 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.db
+*.sqlite3
+.gstack/
+prospec-report.json
+
+# prospec: share config, skills, agent guides and in-progress changes;
+# keep archived bundles, local operation logs and delegation checkpoints on this machine only
+# (the durable archive record is prospec/specs/_archived-history/).
+.prospec/archive/
+.prospec/history-operations/
+.prospec/changes/*/.delegated/
+.claude/backup/
+
+# Firebase CLI local deploy cache
+.firebase/
+
+# private scan patterns
+.scan-private-patterns
+
+*.partial
+*.partial.tmp
+
+# local environment files (secrets); keep an example file tracked
+.env
+.env.*
+!.env.example

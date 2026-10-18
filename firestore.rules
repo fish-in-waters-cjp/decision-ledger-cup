@@ -1,0 +1,11 @@
+rules_version = '2';
+// DL-032: browsers never talk to Firestore directly. Every read and write goes through the
+// Cloud Run backend with its service account (which these rules do not restrict), after the
+// backend has verified the user's Firebase ID token and checked project ownership.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

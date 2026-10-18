@@ -1,0 +1,34 @@
+[
+  {
+    "ts": "1790157600.000100",
+    "user": "U01MIKA",
+    "user_profile": {
+      "real_name": "Mika"
+    },
+    "text": "Confirming in writing: the beta launch is November 17. I've updated the roadmap."
+  },
+  {
+    "ts": "1790244000.000200",
+    "user": "U04JONAS",
+    "user_profile": {
+      "real_name": "Jonas"
+    },
+    "text": "Reminder for everyone touching checkout, as agreed: the beta requires an account for every order. No guest orders in beta."
+  },
+  {
+    "ts": "1790244300.000300",
+    "user": "U05LENA",
+    "user_profile": {
+      "real_name": "Lena"
+    },
+    "text": "Yes, account required for the beta. Support needs every order tied to a login."
+  },
+  {
+    "ts": "1790330400.000400",
+    "user": "U03NOAH",
+    "user_profile": {
+      "real_name": "Noah"
+    },
+    "text": "Maybe we could add a dark mode later? Not urgent."
+  }
+]

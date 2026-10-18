@@ -1,0 +1,14 @@
+Decision Ledger evaluation, 2026-10-17, HEAD 5d863f6
+scenario: fixtures  gold: dev-gold.json (sha256 5196bbabf784)  scorer: eval.py (sha256 fa8e66944887)
+backend: fake (replay of responses recorded from Gemini, see src/decision_ledger/demo/fixtures/llm/RECORDING.md)
+Synthetic fixtures. Gold labelled by the AI team on Ci's behalf (development set, see the gold file's labelled_by).
+Results describe this test set only; they do not establish production accuracy.
+
+task          hit   fp miss  precision recall
+extraction      5    0    1       1.00   0.83
+conflict        1    0    0       1.00   1.00
+deviation       1    0    0       1.00   1.00
+premise         1    2    0       0.33   1.00
+(supersede)     1    0    0       1.00   1.00
+verbatim quotes: 18/18 (1.00)
+replay misses: 0

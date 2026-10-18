@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Decision Ledger</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <h1 class="brand">Decision Ledger</h1>
+      <div class="switcher" id="switcher"></div>
+      <div class="sandbox-bar" id="sandbox-bar"></div>
+      <div id="recorded" hidden></div>
+      <button class="proto lang-toggle" id="lang-toggle" type="button" data-locale-toggle aria-label="Switch interface language" data-i18n-aria-label="locale.switch_aria">Traditional Chinese</button>
+      <span class="proto" id="synthetic" data-i18n="status.synthetic" data-i18n-title="status.synthetic.hint" title="The team, product, people, meetings and pull requests in the demo are invented">Synthetic data</span>
+      <span class="proto" id="backend" data-i18n="status.connecting">Connecting…</span>
+      <nav class="tabs" id="tabs" role="tablist"></nav>
+    </div>
+  </header>
+
+  <main>
+    <div id="account-panel"></div>
+    <div id="banner"></div>
+    <details class="importer" id="importer">
+      <summary id="import-summary" data-expand="Expand ▾" data-collapse="Collapse ▴" data-i18n-set-data-expand="import.expand" data-i18n-set-data-collapse="import.collapse" data-i18n="import.title">Import sources</summary>
+      <div class="ibody">
+        <section id="import-panel"></section>
+        <section>
+          <h2><span data-i18n="pipeline.title">Agent pipeline</span><span class="label" id="pipe-src"></span></h2>
+          <div class="pipe" id="pipe"></div>
+          <div class="log" id="log"></div>
+        </section>
+      </div>
+    </details>
+    <div id="view"></div>
+  </main>
+
+  <div class="scrim" id="scrim" hidden></div>
+  <aside class="drawer" id="drawer" hidden aria-label="Source drawer" data-i18n-aria-label="drawer.label"></aside>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

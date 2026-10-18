@@ -1,0 +1,17 @@
+{
+  "synthetic": true,
+  "team": "Atlas team (synthetic)",
+  "product": "TrailCart (synthetic)",
+  "steps": [
+    {"type": "source", "file": "01-kickoff-0908.txt", "kind": "transcript", "kind_label": "Meeting transcript", "title": "TrailCart beta kickoff", "occurred_on": "9/8", "label": "9/8 TrailCart beta kickoff", "desc": "Guest checkout and the November 3 beta date"},
+    {"type": "source", "file": "02-architecture-0922.txt", "kind": "transcript", "kind_label": "Meeting transcript", "title": "Architecture and schedule", "occurred_on": "9/22", "label": "9/22 Architecture and schedule", "desc": "Payments boundary rule; beta moves to November 17"},
+    {"type": "source", "file": "03-slack-beta-launch.json", "kind": "slack", "kind_label": "Slack export", "title": "#beta-launch channel", "occurred_on": "9/23-9/25", "label": "9/23-9/25 #beta-launch", "desc": "The date is confirmed; someone says every order needs an account"},
+    {"type": "prs", "kind_label": "Pull requests", "title": "10/6 PR #87, #88", "label": "10/6 PR #87 and #88 opened", "desc": "Two pull requests that touch src/payments/",
+     "pull_requests": [
+       {"file": "04-pr-87.diff", "repo": "ci-yang/decision-ledger-demo-repo", "pr_number": 87, "head_sha": "f6988fc76176091e3813f9ac8569d1ef86a108cd", "title": "Add partial refunds per order line", "author": "jonas"},
+       {"file": "04-pr-88.diff", "repo": "ci-yang/decision-ledger-demo-repo", "pr_number": 88, "head_sha": "1d552e6b6fd7c38c7d60d8d0c1d8d4df65a39182", "title": "Round refund amounts to the nearest cent", "author": "priya"}
+     ]},
+    {"type": "source", "file": "05-weekly-1013.txt", "kind": "transcript", "kind_label": "Meeting transcript", "title": "Weekly sync", "occurred_on": "10/13", "label": "10/13 Weekly sync", "desc": "QA staffing comes up in passing"}
+  ],
+  "questions": ["Why did the beta launch move?", "How did the beta launch date change over time?", "Why can't payments code use the database client directly?", "Is guest checkout allowed in the beta?"]
+}

@@ -1,0 +1,19 @@
+diff --git a/requirements.txt b/requirements.txt
+index d80d9fc..bd6f234 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -1 +1 @@
+-requests==2.32.3
++requests==2.32.4
+diff --git a/services/booking/checkout.py b/services/booking/checkout.py
+index 672b150..d59f06a 100644
+--- a/services/booking/checkout.py
++++ b/services/booking/checkout.py
+@@ -1,5 +1,7 @@
+ from gateway.billing.client import charge
+ 
++# Do not add `from providers.acmepay import charge`; charges go through gateway/billing.
++
+ 
+ def book_seat(rider_id: str, sailing_id: str, fare_cents: int) -> str:
+     return charge(rider_id, fare_cents, idempotency_key=f"{rider_id}:{sailing_id}")

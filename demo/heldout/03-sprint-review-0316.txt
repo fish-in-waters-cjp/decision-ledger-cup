@@ -1,0 +1,9 @@
+[00:00:07] Bao: Sprint four review. Load test first, it's the bad news.
+[00:00:35] Wren: The seat-hold service fell over at two hundred concurrent buyers.
+[00:01:02] Oskar: We can't sell on May 4 like that. Sales now open May 18, two weeks later; drop the May 4 date.
+[00:01:30] Bao: I'll update the launch board.
+[00:02:15] Ivo: Second item. A double charge last month came from booking code calling the payment provider on its own.
+[00:02:48] Ivo: Rule from now: nothing inside services/booking/ talks to the payment provider SDK. Charges only go through gateway/billing/.
+[00:03:05] Bao: Fine, the gateway already handles retries.
+[00:03:40] Ivo: Booking confirmations stay on the message queue we already run.
+[00:04:20] Dagny: Should we also think about a loyalty programme? Not now, obviously.

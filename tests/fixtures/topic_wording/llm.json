@@ -1,0 +1,47 @@
+{
+  "extract:aa257141423edd2292c7da5211cf77a4ef492587b2d46367dc620144ae7a7133": {
+    "decisions": [
+      {
+        "topic": "DB 選擇",
+        "statement": "資料庫使用 PostgreSQL",
+        "rationale": "團隊比較熟",
+        "decided_by": "Dave",
+        "evidence": [
+          {
+            "segment_index": 0,
+            "quote": "DB 我們就用 PostgreSQL"
+          }
+        ]
+      }
+    ]
+  },
+  "extract:fc6d5eea2a1fbd4656317861630333588f7847b3b9827dbb5298135a903b7039": {
+    "decisions": [
+      {
+        "topic": "資料庫選型",
+        "statement": "資料庫改用 MySQL",
+        "rationale": "雲端廠商只支援 MySQL",
+        "decided_by": "Dave",
+        "evidence": [
+          {
+            "segment_index": 0,
+            "quote": "資料庫選型改成 MySQL"
+          }
+        ]
+      }
+    ]
+  },
+  "topic:fc6d5eea2a1fbd4656317861630333588f7847b3b9827dbb5298135a903b7039": {
+    "assignments": [
+      {
+        "index": 0,
+        "topic_id": "1"
+      }
+    ]
+  },
+  "reconcile:fc6d5eea2a1fbd4656317861630333588f7847b3b9827dbb5298135a903b7039:0": {
+    "relation": "supersede",
+    "existing_id": "1",
+    "explanation": "改用 MySQL 取代 PostgreSQL"
+  }
+}

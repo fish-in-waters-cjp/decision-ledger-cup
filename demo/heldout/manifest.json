@@ -1,0 +1,20 @@
+{
+  "synthetic": true,
+  "held_out": true,
+  "frozen": "2026-10-17",
+  "team": "Kestrel team (synthetic)",
+  "product": "Ferryline (synthetic)",
+  "steps": [
+    {"type": "source", "file": "01-planning-0302.txt", "kind": "transcript", "kind_label": "Meeting transcript", "title": "Ferryline planning", "occurred_on": "3/2", "label": "3/2 Ferryline planning", "desc": "Sales date, timetable copy and launch routes"},
+    {"type": "source", "file": "02-slack-ops.json", "kind": "slack", "kind_label": "Slack export", "title": "#ferry-ops channel", "occurred_on": "3/5-3/7", "label": "3/5-3/7 #ferry-ops", "desc": "Timetables and the sales date"},
+    {"type": "source", "file": "03-sprint-review-0316.txt", "kind": "transcript", "kind_label": "Meeting transcript", "title": "Sprint four review", "occurred_on": "3/16", "label": "3/16 Sprint four review", "desc": "Load test outcome; billing boundary"},
+    {"type": "prs", "kind_label": "Pull requests", "title": "3/30 PR #12, #13, #14", "label": "3/30 PR #12, #13 and #14 opened", "desc": "Three pull requests that touch services/booking/",
+     "pull_requests": [
+       {"file": "04-pr-12.diff", "repo": "example-kestrel/ferryline", "pr_number": 12, "head_sha": "8025ec1990c085fc2fbf922db05f12d801aacf42", "title": "Charge luggage fees at booking time", "author": "bao"},
+       {"file": "04-pr-13.diff", "repo": "example-kestrel/ferryline", "pr_number": 13, "head_sha": "ce64cacc35b2b81729925ab03eed2ba4e7122fcc", "title": "Charge luggage fees through the billing gateway", "author": "wren"},
+       {"file": "04-pr-14.diff", "repo": "example-kestrel/ferryline", "pr_number": 14, "head_sha": "1ebdfd1df761c5c5cce1e3db04e6fd1919f5db77", "title": "Document the billing rule and bump requests", "author": "ivo"}
+     ]},
+    {"type": "source", "file": "05-slack-news.json", "kind": "slack", "kind_label": "Slack export", "title": "#ferry-news channel", "occurred_on": "4/11", "label": "4/11 #ferry-news", "desc": "Port authority news"}
+  ],
+  "questions": ["What made us postpone ticket sales?", "Who may call the payment provider SDK?", "Which routes are on sale at launch, and why?", "Do we keep a copy of the timetable?"]
+}
